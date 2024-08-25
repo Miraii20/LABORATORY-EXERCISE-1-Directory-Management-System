@@ -22,7 +22,7 @@ int main() {
         else if (option == 2) {
             cout << "Enter the folder name to create: ";
             string folderName;
-            cin >> golderName;
+            cin >> folderName;
             cout << "Folder '" + folderName + "' has been successfully created.\n";
         } 
         else if (option == 3) {
