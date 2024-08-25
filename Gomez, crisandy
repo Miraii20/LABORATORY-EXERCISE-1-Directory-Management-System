@@ -12,3 +12,16 @@ int main() {
         cout << "4. Quit Program\n";
         cout << "Please select an option: ";
         
+        int option;
+        cin >> option;
+
+        if (option == 1) {
+            cout << "Files in Directory:\n";
+            cout << " - fileA.txt\n - fileB.cpp\n - fileC.jpg\n - fileD.doc\n";
+        } 
+        else if (option == 2) {
+            cout << "Enter the folder name to create: ";
+            string folderName;
+            cin >> folderName;
+            cout << "Folder '" + folderName + "' has been successfully created.\n";
+        
