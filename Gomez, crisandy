@@ -22,6 +22,27 @@ int main() {
         else if (option == 2) {
             cout << "Enter the folder name to create: ";
             string folderName;
-            cin >> folderName;
+            cin >> golderName;
             cout << "Folder '" + folderName + "' has been successfully created.\n";
-        
+        } 
+        else if (option == 3) {
+            cout << "Enter the directory name to switch to: ";
+            string dirName;
+            cin >> dirName;
+            cout << "Switched to directory: C:\\Workspace\\" + dirName + "\n";
+        } 
+        else if (option == 4) {
+            cout << "Exiting program...\n";
+            break;
+        } 
+        else {
+            cout << "Invalid choice. Please enter a valid option.\n";
+        }
+
+        cout << "Press Enter to continue...";
+        cin.ignore();
+        cin.get();
+    }
+
+    return 0;
+}
