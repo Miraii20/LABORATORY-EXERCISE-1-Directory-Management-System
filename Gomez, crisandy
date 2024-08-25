@@ -1,0 +1,14 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    while (true) {
+        cout << "\n*** MAIN MENU ***\n";
+        cout << "1. View Files in Directory\n";
+        cout << "2. Make a New Folder\n";
+        cout << "3. Switch to Another Directory\n";
+        cout << "4. Quit Program\n";
+        cout << "Please select an option: ";
+        
