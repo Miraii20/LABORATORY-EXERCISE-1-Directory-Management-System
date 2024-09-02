@@ -1,0 +1,124 @@
+#include <iostream>
+#include <direct.h>
+#include <string>
+
+using namespace std;
+
+void list_files();
+void make_directory();
+void change_directory();
+
+int main() {
+int choice;
+while (true) {
+cout << " Menu: " << endl;
+cout << "1. View Files\n";
+cout << "2. Create New Directory\n";
+cout << "3. Switch Directory\n";
+cout << "4. Exit Program\n";
+cout << "Enter your choice: ";
+cin >> choice;
+
+switch (choice) {
+case 1:
+list_files();
+break;
+case 2:
+make_directory();
+break;
+case 3:
+change_directory();
+break;
+case 4:
+return 0;
+default:
+cout << "Invalid choice. Please try again.\n";
+}
+}
+return 0;
+}
+
+void list_files() {
+int option;
+cout << " FILE LIST:" << endl;
+cout << "1. List All Files\n";
+cout << "2. List Files by Extension\n";
+cout << "3. List Files by Pattern\n";
+cout << "Enter your choice: ";
+cin >> option;
+
+switch (option) {
+case 1:
+cout << "Displaying all files:\n";
+system("dir");
+break;
+case 2: {
+string ext;
+cout << "Enter file extension (e.g., doc): ";
+cin >> ext;
+system(("dir *." + ext).c_str());
+break;
+}
+case 3: {
+string pattern;
+cout << "Enter file name pattern (e.g., *.txt): ";
+cin >> pattern;
+system(("dir " + pattern).c_str());
+break;
+}
+default:
+cout << "Invalid option. Please try again.\n";
+}
+}
+
+void make_directory() {
+string dirName;
+cout << "Enter the name of the new directory: ";
+cin >> dirName;
+
+if (_mkdir(dirName.c_str()) == 0) {
+cout << "Directory successfully created." << endl;
+} else {
+cout << "Failed to create directory. It might already exist or be invalid." << endl;
+}
+}
+
+void change_directory() {
+int choice;
+cout << " Directory Change Options:" << endl;
+cout << "1. Move up one level\n";
+cout << "2. Go to root directory\n";
+cout << "3. Move to a specific directory\n";
+cout << "Select an option: ";
+cin >> choice;
+
+switch (choice) {
+case 1:
+if (_chdir("..") == 0) {
+cout << "Moved to the parent directory." << endl;
+} else {
+cout << "Failed to move to the parent directory." << endl;
+}
+break;
+case 2:
+if (_chdir("\\") == 0) {
+cout << "Moved to the root directory." << endl;
+} else {
+cout << "Failed to move to the root directory." << endl;
+}
+break;
+case 3: {
+string dirPath;
+cout << "Enter the directory path: ";
+cin >> dirPath;
+if (_chdir(dirPath.c_str()) == 0) {
+cout << "Successfully changed directory." << endl;
+} else {
+cout << "Failed to change directory. It might not exist." << endl;
+}
+break;
+}
+default:
+cout << "Invalid choice. Please try again." << endl;
+}
+}
